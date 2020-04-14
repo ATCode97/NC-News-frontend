@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-rows: 100px auto 100px;
-  grid-template-columns: 150px auto;
+  grid-template-rows: 100px auto;
   grid-template-areas: "header header" "nav main";
 }
 
@@ -18,4 +18,9 @@
 
 .articlesList {
   border: solid 3px green;
+  width: 100%;
+}
+
+.NavList {
+  list-style: none;
 }

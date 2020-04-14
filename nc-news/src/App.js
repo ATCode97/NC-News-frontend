@@ -13,7 +13,8 @@ function App() {
       <NavBar />
       <Router>
         <HomePage path="/" />
-        <ArticleList path="/topics/:slug" />
+        <ArticleList path="/topics/:topic" />
+        <ArticleList path="/articles" />
       </Router>
     </div>
   );
