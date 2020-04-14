@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 
 const Header = () => {
   return (
-    <header>
+    <header className="Header">
       <h1>North Coder News</h1>
     </header>
   );

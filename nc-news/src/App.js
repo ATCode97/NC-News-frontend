@@ -1,11 +1,20 @@
 import React from "react";
-import "./App.css";
+import { Router } from "@reach/router";
+import "./styles/global.css";
 import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import ArticleList from "./components/ArticleList";
+import HomePage from "./components/Homepage";
 
 function App() {
   return (
     <div className="App">
-      <Header className="ncNews header" />
+      <Header />
+      <NavBar />
+      <Router>
+        <HomePage path="/" />
+        <ArticleList path="/topics/:slug" />
+      </Router>
     </div>
   );
 }

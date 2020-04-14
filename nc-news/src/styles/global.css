@@ -1,0 +1,21 @@
+.App {
+  display: grid;
+  grid-template-rows: 100px auto 100px;
+  grid-template-columns: 150px auto;
+  grid-template-areas: "header header" "nav main";
+}
+
+.Header {
+  grid-area: header;
+  border: hidden 2px;
+}
+
+.Nav {
+  grid-area: nav;
+  border: solid 3px blue;
+  width: 100%;
+}
+
+.articlesList {
+  border: solid 3px green;
+}
