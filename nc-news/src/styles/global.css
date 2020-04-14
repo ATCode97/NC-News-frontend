@@ -12,7 +12,7 @@
 
 .Nav {
   grid-area: nav;
-  border: solid 3px blue;
+  border: hidden 3px;
   width: 100%;
 }
 

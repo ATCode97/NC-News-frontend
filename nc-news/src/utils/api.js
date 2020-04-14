@@ -4,13 +4,21 @@ const request = axios.create({
   baseURL: "https://northcodersnews2020.herokuapp.com/api",
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sort_by) => {
   return request
-    .get("/articles", { params: { topic } })
+    .get("/articles", { params: { topic, sort_by } })
     .then(({ data: { articles } }) => {
       return articles;
     });
 };
+
+export const getArticleById = (article_id) => {
+  return request
+    .get(`/articles/${article_id}`)
+    .then(({ data: { article } }) => {
+      return article;
+    });
+}; //could this take a params to get single article?
 
 export const getTopics = () => {
   return request.get("/topics").then(({ data: { topics } }) => {

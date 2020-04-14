@@ -1,22 +1,15 @@
 import React from "react";
+import { Link } from "@reach/router";
 
-const ArticleCard = ({
-  title,
-  topic,
-  body,
-  votes,
-  comment_count,
-  created_at,
-}) => {
+const ArticleCard = ({ article_id, title, topic }) => {
+  //the view more button will navigate it self in to the single article??? how does it know which article?...articleId maybe?
+
   return (
     <>
       <article>
         <p>Title: {title}</p>
         <p>Topic: {topic}</p>
-        <p>Vote Count: {votes}</p>
-        <p>Comment Count: {comment_count}</p>
-        <p>Published At: {created_at} </p>
-        <p>{body}</p>
+        <Link to={`/articles/${article_id}`}>View More</Link>
       </article>
     </>
   );

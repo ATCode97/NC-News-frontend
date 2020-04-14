@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
 import ArticleCard from "./ArticleCard";
 
-class ArticleList extends React.Component {
+class ArticleList extends Component {
   state = { articles: [], isLoading: true };
 
   componentDidMount() {

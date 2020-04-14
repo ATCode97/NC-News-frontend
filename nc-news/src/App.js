@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import ArticleList from "./components/ArticleList";
 import HomePage from "./components/Homepage";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <HomePage path="/" />
         <ArticleList path="/topics/:topic" />
         <ArticleList path="/articles" />
+        <SingleArticle path="/articles/:article_id" />
       </Router>
     </div>
   );
