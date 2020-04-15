@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
 import CommentVote from "./CommentVote";
+import CommentAdder from "./CommentAdder";
 
 class CommentList extends Component {
   state = {
@@ -19,12 +20,27 @@ class CommentList extends Component {
     });
   };
 
+  addCommentToList = (newComment) => {
+    this.setState((currentState) => {
+      return { comments: [newComment, ...currentState.comments] };
+    });
+  };
+
+  handleDelete = (event) => {
+    console.dir(event.target);
+  };
+
   render() {
     const { comments, isLoading } = this.state;
     if (isLoading) return <Loader />;
     return (
       <>
         <div>
+          <CommentAdder
+            article_id={this.state.comments[0].article_id}
+            addComment={this.addCommentToList}
+            username={this.props.username}
+          />
           {comments.map(({ body, comment_id, author, votes, created_at }) => {
             return (
               <section key={comment_id}>
@@ -36,6 +52,11 @@ class CommentList extends Component {
                 />
                 <p>{body}</p>
                 <p>Posted At: {created_at}</p>
+                {this.props.username === author && (
+                  <button className="deleteButton" onClick={this.handleDelete}>
+                    Delete Comment
+                  </button>
+                )}
               </section>
             );
           })}

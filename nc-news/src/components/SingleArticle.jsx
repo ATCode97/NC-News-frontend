@@ -32,11 +32,11 @@ class SingleArticle extends Component {
       <article id={article_id}>
         <h3>{title}</h3>
         <p>Topic: {topic}</p>
-        <p>Created At: {created_at}</p>
+        <p>Created at: {created_at}</p>
         <p>{body}</p>
         <ArticleVote votes={votes} article_id={article_id} type={"articles"} />
-        <p>comment Count: {comment_count}</p>
-        <CommentList article_id={article_id} />
+        <p>Comment count: {comment_count}</p>
+        <CommentList article_id={article_id} username={this.props.username} />
       </article>
     );
   }

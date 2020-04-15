@@ -61,3 +61,15 @@ export const getAllComments = (article_id) => {
       return comments;
     });
 };
+
+export const postNewComment = (article_id, newComment) => {
+  return request
+    .post(`/articles/${article_id}/comments`, newComment)
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
+export const deleteComment = (comment_id) => {
+  return request.delete(`/comments/${comment_id}`);
+};
