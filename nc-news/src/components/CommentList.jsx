@@ -29,7 +29,11 @@ class CommentList extends Component {
             return (
               <section key={comment_id}>
                 <p>Posted By: {author}</p>
-                <CommentVote type="comments" />
+                <CommentVote
+                  type="comments"
+                  comment_id={comment_id}
+                  votes={votes}
+                />
                 <p>{body}</p>
                 <p>Posted At: {created_at}</p>
               </section>
