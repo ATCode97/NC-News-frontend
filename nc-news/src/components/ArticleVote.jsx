@@ -18,6 +18,7 @@ class ArticleVote extends Component {
     return (
       <section>
         <button
+          className="upVoteButton"
           onClick={() => this.handleClickEvent(1)}
           disabled={optimisticVotes > 0}
         >
@@ -25,6 +26,7 @@ class ArticleVote extends Component {
         </button>
         <p>Current votes: {this.props.votes + optimisticVotes}</p>
         <button
+          className="downVoteButton"
           onClick={() => this.handleClickEvent(-1)}
           disabled={optimisticVotes < 0}
         >

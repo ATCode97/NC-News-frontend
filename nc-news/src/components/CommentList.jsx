@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
+import CommentVote from "./CommentVote";
 
 class CommentList extends Component {
   state = {
@@ -23,7 +24,18 @@ class CommentList extends Component {
     if (isLoading) return <Loader />;
     return (
       <>
-        <div></div>
+        <div>
+          {comments.map(({ body, comment_id, author, votes, created_at }) => {
+            return (
+              <section key={comment_id}>
+                <p>Posted By: {author}</p>
+                <CommentVote type="comments" />
+                <p>{body}</p>
+                <p>Posted At: {created_at}</p>
+              </section>
+            );
+          })}
+        </div>
       </>
     );
   }

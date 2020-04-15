@@ -18,7 +18,7 @@ export const getArticleById = (article_id) => {
     .then(({ data: { article } }) => {
       return article;
     });
-}; //could this take a params to get single article?
+};
 
 export const getTopics = () => {
   return request.get("/topics").then(({ data: { topics } }) => {
@@ -50,13 +50,13 @@ export const sortByCreatedAt = () => {
     });
 };
 
-export const patchVotes = (type, id, votes) => {
-  return request.patch(`/${type}/${id}`, { votes });
+export const patchVotes = (type, id, inc_votes) => {
+  return request.patch(`/${type}/${id}`, { inc_votes });
 };
 
 export const getAllComments = (article_id) => {
   return request
-    .get(`/${article_id}/comments`)
+    .get(`/articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
       return comments;
     });

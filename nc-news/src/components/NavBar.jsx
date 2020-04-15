@@ -19,6 +19,9 @@ class NavBar extends React.Component {
     return (
       <nav className="Nav">
         <ul className="NavList">
+          <li>
+            <Link to={"/articles"}> Articles</Link>
+          </li>
           {topics.map(({ slug }) => {
             return (
               <li key={slug}>
@@ -26,9 +29,6 @@ class NavBar extends React.Component {
               </li>
             );
           })}
-          <li>
-            <Link to={"/articles"}> Articles</Link>
-          </li>
         </ul>
       </nav>
     );
