@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Loader from "./Loader";
 import * as api from "../utils/api";
+import ArticleVote from "./ArticleVote";
+import CommentList from "./CommentList";
 
 class SingleArticle extends Component {
   state = { article: [], isLoading: true };
@@ -32,8 +34,9 @@ class SingleArticle extends Component {
         <p>Topic: {topic}</p>
         <p>Created At: {created_at}</p>
         <p>{body}</p>
-        <p>votes: {votes}</p>
+        <ArticleVote votes={votes} article_id={article_id} type={"articles"} />
         <p>comment Count: {comment_count}</p>
+        <CommentList article_id={article_id} />
       </article>
     );
   }

@@ -49,3 +49,15 @@ export const sortByCreatedAt = () => {
       return articles;
     });
 };
+
+export const patchVotes = (type, id, votes) => {
+  return request.patch(`/${type}/${id}`, { votes });
+};
+
+export const getAllComments = (article_id) => {
+  return request
+    .get(`/${article_id}/comments`)
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};

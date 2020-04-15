@@ -9,9 +9,7 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     api.getTopics().then((topics) => {
-      this.setState({ topics, isLoading: false }, () => {
-        console.log(this.state);
-      });
+      this.setState({ topics, isLoading: false }, () => {});
     });
   }
 

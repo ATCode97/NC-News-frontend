@@ -7,7 +7,7 @@ import ArticleList from "./components/ArticleList";
 import HomePage from "./components/Homepage";
 import SingleArticle from "./components/SingleArticle";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Header />
@@ -20,6 +20,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
