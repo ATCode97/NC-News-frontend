@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
+import ErrorPage from "./ErrorPage";
 
 class CommentAdder extends Component {
   state = {
@@ -24,13 +25,20 @@ class CommentAdder extends Component {
         this.props.addComment(newComment);
       })
       .catch((err) => {
-        console.dir(err);
+        const { status, data } = err.response;
+        this.setState({
+          hasError: { status, msg: data.msg },
+          isLoading: false,
+        });
       });
   };
 
   render() {
-    const { body, isLoading } = this.state;
+    const { body, isLoading, hasError } = this.state;
     if (isLoading) return <Loader />;
+    if (hasError)
+      return <ErrorPage status={hasError.status} msg={hasError.msg} />;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label className="commentBox">

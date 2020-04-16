@@ -8,6 +8,7 @@ class CommentList extends Component {
   state = {
     comments: [],
     isLoading: true,
+    hasError: null,
   };
 
   componentDidMount() {
@@ -40,13 +41,20 @@ class CommentList extends Component {
         });
       })
       .catch((err) => {
-        console.dir(err);
+        const { status, data } = err.response;
+        this.setState({
+          hasError: { status, msg: data.msg },
+          isLoading: false,
+        });
       });
   };
 
   render() {
-    const { comments, isLoading } = this.state;
+    const { comments, isLoading, hasError } = this.state;
     if (isLoading) return <Loader />;
+    if (hasError)
+      return <ErrorPage status={hasError.status} msg={hasError.msg} />;
+
     return (
       <>
         <div>

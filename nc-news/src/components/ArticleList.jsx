@@ -60,11 +60,3 @@ class ArticleList extends Component {
 }
 
 export default ArticleList;
-
-{
-  /* <select>
-  <option value="votes">Votes</option>
-  <option value="Comments">Comments</option>
-  <option value="Dates">Dates</option>
-</select>; */
-}
