@@ -26,8 +26,17 @@ class CommentList extends Component {
     });
   };
 
-  handleDelete = (event) => {
-    console.dir(event.target);
+  deleteComment = (comment_id) => {
+    // 1. delete comment on api
+    // 2. set state -> using filter to remove the deleted comment
+    api.deleteComment(comment_id).then(() => {
+      this.setState((currentState) => {
+        const filteredComments = currentState.comments.filter(
+          (comment) => comment.comment_id !== comment_id
+        );
+        return { comments: filteredComments };
+      });
+    });
   };
 
   render() {
@@ -53,7 +62,10 @@ class CommentList extends Component {
                 <p>{body}</p>
                 <p>Posted At: {created_at}</p>
                 {this.props.username === author && (
-                  <button className="deleteButton" onClick={this.handleDelete}>
+                  <button
+                    className="deleteButton"
+                    onClick={() => this.deleteComment(comment_id)}
+                  >
                     Delete Comment
                   </button>
                 )}

@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import ArticleList from "./components/ArticleList";
 import HomePage from "./components/Homepage";
 import SingleArticle from "./components/SingleArticle";
+import ErrorPage from "./components/ErrorPage";
 
 class App extends Component {
   state = {
@@ -29,6 +30,7 @@ class App extends Component {
             path="/articles/:article_id"
             username={this.state.loggedInUser.username}
           />
+          <ErrorPage default />
         </Router>
       </div>
     );

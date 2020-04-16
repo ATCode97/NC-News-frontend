@@ -23,7 +23,7 @@ class ArticleList extends Component {
   };
 
   sortByVotes = () => {
-    api.sortByVotes().then((articles) => {
+    api.getArticles("votes").then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   };
