@@ -11,8 +11,8 @@ const ErrorPage = (props) => {
   return (
     <div>
       <h2>Error! </h2>
-      <p>Status: {status}</p>
-      <p>Msg: {msg}</p>
+      <p>Status: {status || 500}</p>
+      <p>Msg: {msg || "please try again later..."}</p>
     </div>
   );
 };

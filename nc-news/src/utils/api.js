@@ -18,35 +18,11 @@ export const getTopics = () => {
   });
 };
 
-export const sortByVotes = () => {
-  return request
-    .get("/articles?sort_by=votes")
-    .then(({ data: { articles } }) => {
-      return articles;
-    });
-};
-
-export const sortByCommentCount = () => {
-  return request
-    .get("/articles?sort_by=comment_count")
-    .then(({ data: { articles } }) => {
-      return articles;
-    });
-};
-
 export const getArticleById = (article_id) => {
   return request
     .get(`/articles/${article_id}`)
     .then(({ data: { article } }) => {
       return article;
-    });
-};
-
-export const sortByCreatedAt = () => {
-  return request
-    .get("/articles?sort_by=created_at")
-    .then(({ data: { articles } }) => {
-      return articles;
     });
 };
 

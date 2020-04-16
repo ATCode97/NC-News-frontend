@@ -17,11 +17,10 @@ class ArticleList extends Component {
     }
   }
 
-  fetchArticles = () => {
+  fetchArticles = (sort_by) => {
     api
-      .getArticles(this.props.topic)
+      .getArticles(this.props.topic, sort_by)
       .then((articles) => {
-        //const params = ????
         this.setState({ articles, isLoading: false });
       })
       .catch((err) => {
@@ -33,24 +32,6 @@ class ArticleList extends Component {
       });
   };
 
-  sortByVotes = () => {
-    api.getArticles("votes").then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
-  };
-
-  sortByComment = () => {
-    api.sortByCommentCount().then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
-  };
-
-  sortByDate = () => {
-    api.sortByCreatedAt().then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
-  };
-
   render() {
     const { articles, isLoading, hasError } = this.state;
     if (isLoading) return <Loader />;
@@ -60,9 +41,15 @@ class ArticleList extends Component {
     return (
       <>
         <main className="articlesList">
-          <button onClick={this.sortByVotes}>SortBy Votes</button>
-          <button onClick={this.sortByComment}>SortBy Comment</button>
-          <button onClick={this.sortByDate}>SortBy Date</button>
+          <button onClick={() => this.fetchArticles("votes")}>
+            SortBy Votes
+          </button>
+          <button onClick={() => this.fetchArticles("comment_count")}>
+            SortBy Comment
+          </button>
+          <button onClick={() => this.fetchArticles("created_at")}>
+            SortBy Created_at
+          </button>
           {articles.map((article) => {
             return <ArticleCard key={article.article_id} {...article} />;
           })}
@@ -73,3 +60,11 @@ class ArticleList extends Component {
 }
 
 export default ArticleList;
+
+{
+  /* <select>
+  <option value="votes">Votes</option>
+  <option value="Comments">Comments</option>
+  <option value="Dates">Dates</option>
+</select>; */
+}
