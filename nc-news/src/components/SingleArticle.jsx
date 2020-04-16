@@ -6,7 +6,7 @@ import CommentList from "./CommentList";
 import ErrorPage from "./ErrorPage";
 
 class SingleArticle extends Component {
-  state = { article: [], isLoading: true, hasError: false };
+  state = { article: [], isLoading: true, hasError: null };
 
   componentDidMount() {
     this.fetchSingleArticle();
@@ -19,13 +19,19 @@ class SingleArticle extends Component {
         this.setState({ article, isLoading: false });
       })
       .catch((err) => {
-        this.setState({ hasError: true, isLoading: false });
+        const { status, data } = err.response;
+        this.setState({
+          hasError: { status, msg: data.msg },
+          isLoading: false,
+        });
       });
   };
 
   render() {
-    if (this.state.isLoading) return <Loader />;
-    if (this.state.hasError) return <ErrorPage />;
+    const { isLoading, hasError } = this.state;
+    if (isLoading) return <Loader />;
+    if (hasError)
+      return <ErrorPage status={hasError.status} msg={hasError.msg} />;
     const {
       title,
       body,

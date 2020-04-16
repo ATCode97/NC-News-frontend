@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import Loader from "./Loader";
 
 class CommentAdder extends Component {
   state = {
     body: "",
+    isLoading: false,
+    hasError: false,
   };
 
   handleInputChanges = (inputValue) => {
-    this.setState({ body: inputValue });
+    this.setState({ body: inputValue, isLoading: false });
   };
 
   handleSubmit = (event) => {
@@ -19,11 +22,15 @@ class CommentAdder extends Component {
       })
       .then((newComment) => {
         this.props.addComment(newComment);
+      })
+      .catch((err) => {
+        console.dir(err);
       });
   };
 
   render() {
-    const { body } = this.state;
+    const { body, isLoading } = this.state;
+    if (isLoading) return <Loader />;
     return (
       <form onSubmit={this.handleSubmit}>
         <label className="commentBox">
@@ -34,6 +41,7 @@ class CommentAdder extends Component {
             type="text"
             id="commentInput"
             value={body}
+            required
           />
           <button>Post comment</button>
         </label>

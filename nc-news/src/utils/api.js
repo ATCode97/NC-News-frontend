@@ -12,14 +12,6 @@ export const getArticles = (topic, sort_by) => {
     });
 };
 
-export const getArticleById = (article_id) => {
-  return request
-    .get(`/articles/${article_id}`)
-    .then(({ data: { article } }) => {
-      return article;
-    });
-};
-
 export const getTopics = () => {
   return request.get("/topics").then(({ data: { topics } }) => {
     return topics;
@@ -39,6 +31,14 @@ export const sortByCommentCount = () => {
     .get("/articles?sort_by=comment_count")
     .then(({ data: { articles } }) => {
       return articles;
+    });
+};
+
+export const getArticleById = (article_id) => {
+  return request
+    .get(`/articles/${article_id}`)
+    .then(({ data: { article } }) => {
+      return article;
     });
 };
 

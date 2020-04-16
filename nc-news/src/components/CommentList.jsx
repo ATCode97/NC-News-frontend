@@ -29,14 +29,19 @@ class CommentList extends Component {
   deleteComment = (comment_id) => {
     // 1. delete comment on api
     // 2. set state -> using filter to remove the deleted comment
-    api.deleteComment(comment_id).then(() => {
-      this.setState((currentState) => {
-        const filteredComments = currentState.comments.filter(
-          (comment) => comment.comment_id !== comment_id
-        );
-        return { comments: filteredComments };
+    api
+      .deleteComment(comment_id)
+      .then(() => {
+        this.setState((currentState) => {
+          const filteredComments = currentState.comments.filter(
+            (comment) => comment.comment_id !== comment_id
+          );
+          return { comments: filteredComments };
+        });
+      })
+      .catch((err) => {
+        console.dir(err);
       });
-    });
   };
 
   render() {

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
 import ArticleCard from "./ArticleCard";
+import ErrorPage from "./ErrorPage";
 
 class ArticleList extends Component {
-  state = { articles: [], isLoading: true };
+  state = { articles: [], isLoading: true, hasError: null };
 
   componentDidMount() {
     this.fetchArticles();
@@ -17,9 +18,19 @@ class ArticleList extends Component {
   }
 
   fetchArticles = () => {
-    api.getArticles(this.props.topic).then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    api
+      .getArticles(this.props.topic)
+      .then((articles) => {
+        //const params = ????
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        this.setState({
+          hasError: { status, msg: data.msg },
+          isLoading: false,
+        });
+      });
   };
 
   sortByVotes = () => {
@@ -41,8 +52,11 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, hasError } = this.state;
     if (isLoading) return <Loader />;
+    if (hasError)
+      return <ErrorPage status={hasError.status} msg={hasError.msg} />;
+
     return (
       <>
         <main className="articlesList">
