@@ -20,12 +20,17 @@ class NavBar extends React.Component {
       <nav className="Nav">
         <ul className="NavList">
           <li>
-            <Link to={"/articles"}> Articles</Link>
+            <Link to={"/articles"} style={{ textDecoration: "none" }}>
+              {" "}
+              Articles
+            </Link>
           </li>
           {topics.map(({ slug }) => {
             return (
               <li key={slug}>
-                <Link to={`/topics/${slug}`}>{slug}</Link>
+                <Link to={`/topics/${slug}`} style={{ textDecoration: "none" }}>
+                  {slug}
+                </Link>
               </li>
             );
           })}

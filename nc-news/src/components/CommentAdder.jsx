@@ -44,6 +44,7 @@ class CommentAdder extends Component {
         <label className="CommentBox">
           <textarea
             className="InputBox"
+            style={{ border: "solid" }}
             onChange={(event) => this.handleInputChanges(event.target.value)}
             type="text"
             placeholder="Add a Comment Here..."
