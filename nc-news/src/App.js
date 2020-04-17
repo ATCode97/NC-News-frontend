@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header {...this.state.loggedInUser} />
         <NavBar />
-        <Router>
+        <Router className="main-content">
           <HomePage path="/" />
           <ArticleList path="/topics/:topic" />
           <ArticleList path="/articles" />

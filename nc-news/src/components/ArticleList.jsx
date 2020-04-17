@@ -40,7 +40,7 @@ class ArticleList extends Component {
 
     return (
       <>
-        <main className="articlesList">
+        <main className="ArticlesList">
           <button onClick={() => this.fetchArticles("votes")}>
             SortBy Votes
           </button>

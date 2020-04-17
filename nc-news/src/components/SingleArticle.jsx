@@ -42,7 +42,7 @@ class SingleArticle extends Component {
       created_at,
     } = this.state.article;
     return (
-      <article id={article_id}>
+      <article id={article_id} className="SingleArticle">
         <h3>{title}</h3>
         <p>Topic: {topic}</p>
         <p>Created at: {created_at}</p>

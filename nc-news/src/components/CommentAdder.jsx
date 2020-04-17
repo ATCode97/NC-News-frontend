@@ -41,13 +41,12 @@ class CommentAdder extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label className="commentBox">
-          add a new comment
-          <input
-            className="inputBox"
+        <label className="CommentBox">
+          <textarea
+            className="InputBox"
             onChange={(event) => this.handleInputChanges(event.target.value)}
             type="text"
-            id="commentInput"
+            placeholder="Add a Comment Here..."
             value={body}
             required
           />

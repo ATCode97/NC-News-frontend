@@ -14,7 +14,7 @@ const ArticleCard = ({
 
   return (
     <>
-      <article>
+      <article className="ArticleCard">
         <p>Title: {title}</p>
         <p>Topic: {topic}</p>
         <p>Comment Count: {comment_count}</p>

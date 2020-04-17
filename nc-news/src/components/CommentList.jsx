@@ -3,6 +3,7 @@ import * as api from "../utils/api";
 import Loader from "./Loader";
 import CommentVote from "./CommentVote";
 import CommentAdder from "./CommentAdder";
+import ErrorPage from "./ErrorPage";
 
 class CommentList extends Component {
   state = {
@@ -28,8 +29,6 @@ class CommentList extends Component {
   };
 
   deleteComment = (comment_id) => {
-    // 1. delete comment on api
-    // 2. set state -> using filter to remove the deleted comment
     api
       .deleteComment(comment_id)
       .then(() => {
@@ -65,7 +64,7 @@ class CommentList extends Component {
           />
           {comments.map(({ body, comment_id, author, votes, created_at }) => {
             return (
-              <section key={comment_id}>
+              <section key={comment_id} className="CommentSection">
                 <p>Posted By: {author}</p>
                 <CommentVote
                   type="comments"

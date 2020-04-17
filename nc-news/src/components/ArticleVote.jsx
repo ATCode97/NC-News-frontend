@@ -21,17 +21,15 @@ class ArticleVote extends Component {
           className="articleUpVoteButton"
           onClick={() => this.handleClick(1)}
           disabled={optimisticVotes > 0}
-        >
-          Up vote
-        </button>
-        <p>Current votes: {this.props.votes + optimisticVotes}</p>
+        ></button>
+        <p className="Votes">
+          Current votes: {this.props.votes + optimisticVotes}
+        </p>
         <button
           className="articleDownVoteButton"
           onClick={() => this.handleClick(-1)}
           disabled={optimisticVotes < 0}
-        >
-          Down votes
-        </button>
+        ></button>
       </section>
     );
   }
