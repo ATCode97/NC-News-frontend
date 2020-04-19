@@ -7,6 +7,7 @@ import ArticleList from "./components/ArticleList";
 import HomePage from "./components/Homepage";
 import SingleArticle from "./components/SingleArticle";
 import ErrorPage from "./components/ErrorPage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
       name: "Jess Jelly",
     },
   };
+
   render() {
     return (
       <div className="App">

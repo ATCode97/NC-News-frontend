@@ -1,7 +1,7 @@
 .App {
-  display: grid;
+  /* display: grid;
   grid-template-rows: 100px auto auto;
-  grid-template-areas: "header header" "nav nav" "main main";
+  grid-template-areas: "header header" "nav nav" "main main"; */
 }
 
 .main-content {
@@ -9,27 +9,31 @@
 }
 
 .Header {
-  grid-area: header;
+  /* grid-area: header; */
   border: hidden 2px;
-  margin: 10px;
+  background-color: black;
+  text-align: center;
 }
 
 .Header p {
-  margin: 10px;
   border: 0;
+  color: white;
+  background-color: black;
 }
 
-.Header img {
-  size: 25px;
+.Header h1 {
+  color: darkred;
 }
 
 .Nav {
-  grid-area: nav;
+  /* grid-area: nav; */
   border: hidden 3px;
+  background-color: red;
+  margin-top: 15px;
 }
 
 .ArticlesList {
-  grid-area: main;
+  /* grid-area: main; */
   border: none 3px;
   width: 100%;
 }
@@ -43,6 +47,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 0;
+  border-width: 1px;
 }
 
 .NavList li {
@@ -56,6 +61,7 @@
 .ArticleCard {
   border: solid 3px black;
   margin: 10px;
+  background-color: grey;
 }
 
 .SingleArticle {
@@ -90,4 +96,10 @@
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+/* Dayas CSS */
+.header-background {
+  background-color: black;
+  padding: 15px;
 }
