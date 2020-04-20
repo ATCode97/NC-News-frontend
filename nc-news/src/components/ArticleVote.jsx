@@ -16,17 +16,17 @@ class ArticleVote extends Component {
   render() {
     const { optimisticVotes } = this.state;
     return (
-      <section>
+      <section className="voting">
         <button
-          className="articleUpVoteButton"
+          className="upVoteButton"
           onClick={() => this.handleClick(1)}
           disabled={optimisticVotes > 0}
         ></button>
-        <p className="Votes">
+        <p className="voting">
           Current votes: {this.props.votes + optimisticVotes}
         </p>
         <button
-          className="articleDownVoteButton"
+          className="downVoteButton"
           onClick={() => this.handleClick(-1)}
           disabled={optimisticVotes < 0}
         ></button>

@@ -18,7 +18,7 @@ class CommentVote extends Component {
     return (
       <section>
         <button
-          className="commentUpVoteButton"
+          className="upVoteButton"
           onClick={() => this.handleClick(1)}
           disabled={optimisticVotes > 0}
         >
@@ -26,7 +26,7 @@ class CommentVote extends Component {
         </button>
         <p>Current votes: {this.props.votes + optimisticVotes}</p>
         <button
-          className="commentDownVoteButton"
+          className="downVoteButton"
           onClick={() => this.handleClick(-1)}
           disabled={optimisticVotes < 0}
         ></button>
