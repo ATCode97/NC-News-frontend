@@ -9,6 +9,11 @@
   background-color: black;
 }
 
+.logo {
+  height: 150px;
+  width: 150px;
+}
+
 .ArticlesList {
   border: none 3px;
   width: 100%;

@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <Row className="header-background">
       <Col className="text-center">
-        <Image src={logo} alt="Logo" fluid />
+        <Image src={logo} alt="Logo" fluid className="logo" />
       </Col>
     </Row>
   );
