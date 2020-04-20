@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
 import ErrorPage from "./ErrorPage";
+import { Form, Button } from "react-bootstrap";
 
 class CommentAdder extends Component {
   state = {
@@ -40,9 +41,11 @@ class CommentAdder extends Component {
       return <ErrorPage status={hasError.status} msg={hasError.msg} />;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <label className="CommentBox">
-          <textarea
+          <Form.Control
+            as="textarea"
+            rows="5"
             className="InputBox"
             style={{ border: "solid", fontSize: 18 }}
             onChange={(event) => this.handleInputChanges(event.target.value)}
@@ -51,9 +54,16 @@ class CommentAdder extends Component {
             value={body}
             required
           />
-          <button>Post comment</button>
+          <Button
+            variant="secondary"
+            size="sm"
+            type="submit"
+            style={{ margin: "10px" }}
+          >
+            Post comment
+          </Button>
         </label>
-      </form>
+      </Form>
     );
   }
 }

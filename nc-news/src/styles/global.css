@@ -1,18 +1,6 @@
-.App {
-  /* display: grid;
-  grid-template-rows: 100px auto auto;
-  grid-template-areas: "header header" "nav nav" "main main"; */
-}
-
-.main-content {
-  grid-area: main;
-}
-
-.Header {
-  /* grid-area: header; */
-  border: hidden 2px;
+.header-background {
   background-color: black;
-  text-align: center;
+  padding: 15px;
 }
 
 .Header p {
@@ -26,14 +14,13 @@
 }
 
 .Nav {
-  /* grid-area: nav; */
   border: hidden 3px;
   background-color: red;
-  margin-top: 15px;
+
+  /* margin-top: 15px; */
 }
 
 .ArticlesList {
-  /* grid-area: main; */
   border: none 3px;
   width: 100%;
 }
@@ -55,13 +42,7 @@
 }
 
 .CommentSection {
-  border: solid 3px black;
-}
-
-.ArticleCard {
-  border: solid 3px black;
   margin: 10px;
-  background-color: grey;
 }
 
 .SingleArticle {
@@ -98,8 +79,21 @@
   -webkit-transform: rotate(45deg);
 }
 
-/* Dayas CSS */
-.header-background {
-  background-color: black;
-  padding: 15px;
+.commentUpVoteButton {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin: 50 px;
+}
+
+.commentDownVoteButton {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

@@ -4,6 +4,7 @@ import * as api from "../utils/api";
 import ArticleVote from "./ArticleVote";
 import CommentList from "./CommentList";
 import ErrorPage from "./ErrorPage";
+import { Card } from "react-bootstrap";
 
 class SingleArticle extends Component {
   state = { article: [], isLoading: true, hasError: null };
@@ -42,15 +43,21 @@ class SingleArticle extends Component {
       created_at,
     } = this.state.article;
     return (
-      <article id={article_id} className="SingleArticle">
-        <h3>{title}</h3>
-        <p>Topic: {topic}</p>
-        <p>Created at: {created_at}</p>
-        <p>{body}</p>
-        <ArticleVote votes={votes} article_id={article_id} type={"articles"} />
-        <p>Comment count: {comment_count}</p>
+      <Card>
+        <Card.Header as="h5">{title}</Card.Header>
+        <Card.Body>
+          <Card.Title>{topic}</Card.Title>
+          <Card.Text>{body}</Card.Text>
+          <ArticleVote
+            votes={votes}
+            article_id={article_id}
+            type={"articles"}
+          />
+          <Card.Text>Posted at: {created_at}</Card.Text>
+          <Card.Text>Comment Count: {comment_count}</Card.Text>
+        </Card.Body>
         <CommentList article_id={article_id} username={this.props.username} />
-      </article>
+      </Card>
     );
   }
 }

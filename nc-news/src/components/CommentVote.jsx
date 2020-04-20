@@ -23,16 +23,13 @@ class CommentVote extends Component {
           disabled={optimisticVotes > 0}
         >
           {" "}
-          Up Vote
         </button>
         <p>Current votes: {this.props.votes + optimisticVotes}</p>
         <button
           className="commentDownVoteButton"
           onClick={() => this.handleClick(-1)}
           disabled={optimisticVotes < 0}
-        >
-          Down Vote
-        </button>
+        ></button>
       </section>
     );
   }

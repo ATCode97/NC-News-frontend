@@ -60,7 +60,7 @@ class ArticleList extends Component {
 
           {articles.map((article) => {
             return (
-              <CardColumns>
+              <CardColumns key={article.article_id}>
                 <ArticleCard key={article.article_id} {...article} />
               </CardColumns>
             );

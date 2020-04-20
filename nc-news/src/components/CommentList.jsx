@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import CommentVote from "./CommentVote";
 import CommentAdder from "./CommentAdder";
 import ErrorPage from "./ErrorPage";
+import { Card, CardDeck } from "react-bootstrap";
 
 class CommentList extends Component {
   state = {
@@ -55,39 +56,60 @@ class CommentList extends Component {
       return <ErrorPage status={hasError.status} msg={hasError.msg} />;
 
     return (
-      <>
-        <div>
-          <CommentAdder
-            article_id={this.state.comments[0].article_id}
-            addComment={this.addCommentToList}
-            username={this.props.username}
-          />
-          {comments.map(({ body, comment_id, author, votes, created_at }) => {
-            return (
-              <section key={comment_id} className="CommentSection">
-                <p>Posted By: {author}</p>
-                <CommentVote
-                  type="comments"
-                  comment_id={comment_id}
-                  votes={votes}
-                />
-                <p>{body}</p>
-                <p>Posted At: {created_at}</p>
-                {this.props.username === author && (
-                  <button
-                    className="deleteButton"
-                    onClick={() => this.deleteComment(comment_id)}
-                  >
-                    Delete Comment
-                  </button>
-                )}
-              </section>
-            );
-          })}
-        </div>
-      </>
+      <div>
+        <CommentAdder
+          article_id={this.state.comments[0].article_id}
+          addComment={this.addCommentToList}
+          username={this.props.username}
+        />
+        {comments.map(({ body, comment_id, author, votes, created_at }) => {
+          return (
+            <section key={comment_id} className="CommentSection">
+              <CardDeck>
+                <Card>
+                  <Card.Body>
+                    <Card.Text>{body}</Card.Text>
+                  </Card.Body>
+                  <Card.Footer>
+                    <CommentVote
+                      type="comments"
+                      comment_id={comment_id}
+                      votes={votes}
+                    />
+                  </Card.Footer>
+                  <Card.Footer>
+                    <small className="text-muted">
+                      Posted At: {created_at}
+                    </small>
+                  </Card.Footer>
+                  <Card.Footer>
+                    <small className="text-muted">Posted By: {author}</small>
+                  </Card.Footer>
+                  {this.props.username === author && (
+                    <button
+                      className="deleteButton"
+                      onClick={() => this.deleteComment(comment_id)}
+                    >
+                      Delete Comment
+                    </button>
+                  )}
+                </Card>
+              </CardDeck>
+            </section>
+          );
+        })}
+      </div>
     );
   }
 }
 
 export default CommentList;
+
+// <p>Posted By: {author}</p>
+// <CommentVote
+//   type="comments"
+//   comment_id={comment_id}
+//   votes={votes}
+// />
+// <p></p>
+// <p>Posted At: {created_at}</p>
