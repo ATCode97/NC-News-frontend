@@ -1,12 +1,12 @@
 import React from "react";
-
+import logo from "../image/logo.png";
 import { Row, Col, Image } from "react-bootstrap";
 
 const Header = (props) => {
   return (
     <Row className="header-background">
       <Col className="text-center">
-        <h1 style={{ color: "Black" }}>North Coder News</h1>
+        <Image src={logo} alt="Logo" fluid />
       </Col>
     </Row>
   );
