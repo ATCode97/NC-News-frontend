@@ -18,9 +18,18 @@ class CommentList extends Component {
   }
 
   fetchComments = () => {
-    api.getAllComments(this.props.article_id).then((comments) => {
-      this.setState({ comments, isLoading: false });
-    });
+    api
+      .getAllComments(this.props.article_id)
+      .then((comments) => {
+        this.setState({ comments, isLoading: false });
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        this.setState({
+          hasError: { status, msg: data.msg },
+          isLoading: false,
+        });
+      });
   };
 
   addCommentToList = (newComment) => {

@@ -1,5 +1,5 @@
 .header-background {
-  background-color: black;
+  background-color: rgb(145, 141, 141);
   padding: 15px;
 }
 
@@ -9,17 +9,6 @@
   background-color: black;
 }
 
-.Header h1 {
-  color: darkred;
-}
-
-.Nav {
-  border: hidden 3px;
-  background-color: red;
-
-  /* margin-top: 15px; */
-}
-
 .ArticlesList {
   border: none 3px;
   width: 100%;
@@ -27,18 +16,6 @@
 
 .ArticlesList button {
   margin: 10px;
-}
-
-.NavList {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0;
-  border-width: 1px;
-}
-
-.NavList li {
-  display: inline-flex;
 }
 
 .CommentSection {

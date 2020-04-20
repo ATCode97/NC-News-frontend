@@ -22,8 +22,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header {...this.state.loggedInUser} />
-        <NavBar />
+        <Header />
+        <NavBar {...this.state.loggedInUser} />
         <Router className="main-content">
           <HomePage path="/" />
           <ArticleList path="/topics/:topic" />

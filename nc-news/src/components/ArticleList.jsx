@@ -3,7 +3,7 @@ import * as api from "../utils/api";
 import Loader from "./Loader";
 import ArticleCard from "./ArticleCard";
 import ErrorPage from "./ErrorPage";
-import { Button, CardColumns } from "react-bootstrap";
+import { CardDeck, DropdownButton, Dropdown } from "react-bootstrap";
 
 class ArticleList extends Component {
   state = { articles: [], isLoading: true, hasError: null };
@@ -42,27 +42,32 @@ class ArticleList extends Component {
     return (
       <>
         <main className="ArticlesList">
-          <Button variant="info" onClick={() => this.fetchArticles("votes")}>
-            Sort By Votes
-          </Button>
-          <Button
-            variant="info"
-            onClick={() => this.fetchArticles("comment_count")}
-          >
-            Sort By Comment
-          </Button>
-          <Button
-            variant="info"
-            onClick={() => this.fetchArticles("created_at")}
-          >
-            Sort By Created
-          </Button>
+          <DropdownButton id="dropdown-item-button" title="Sort By">
+            <Dropdown.Item
+              as="button"
+              onClick={() => this.fetchArticles("comment_count")}
+            >
+              Comment Count
+            </Dropdown.Item>
+            <Dropdown.Item
+              as="button"
+              onClick={() => this.fetchArticles("created_at")}
+            >
+              Created At
+            </Dropdown.Item>
+            <Dropdown.Item
+              as="button"
+              onClick={() => this.fetchArticles("votes")}
+            >
+              Votes
+            </Dropdown.Item>
+          </DropdownButton>
 
           {articles.map((article) => {
             return (
-              <CardColumns key={article.article_id}>
+              <CardDeck style={{ margin: "10px" }} key={article.article_id}>
                 <ArticleCard key={article.article_id} {...article} />
-              </CardColumns>
+              </CardDeck>
             );
           })}
         </main>

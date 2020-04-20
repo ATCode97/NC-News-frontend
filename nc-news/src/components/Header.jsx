@@ -1,24 +1,14 @@
 import React from "react";
-import { Link } from "@reach/router";
-import { Row, Col } from "react-bootstrap";
+
+import { Row, Col, Image } from "react-bootstrap";
 
 const Header = (props) => {
   return (
     <Row className="header-background">
       <Col className="text-center">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <h1>North Coder News</h1>
-          <small>Signed In As: {props.username}</small>
-        </Link>
+        <h1 style={{ color: "Black" }}>North Coder News</h1>
       </Col>
     </Row>
-
-    // <header className="Header">
-    //   <Link to="/" style={{ textDecoration: "none" }}>
-    //     <h1>North Coder News</h1>
-    //     <small>Signed In As: {props.username}</small>
-    //   </Link>
-    // </header>
   );
 };
 
