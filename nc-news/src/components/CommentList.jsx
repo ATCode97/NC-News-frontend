@@ -104,12 +104,3 @@ class CommentList extends Component {
 }
 
 export default CommentList;
-
-// <p>Posted By: {author}</p>
-// <CommentVote
-//   type="comments"
-//   comment_id={comment_id}
-//   votes={votes}
-// />
-// <p></p>
-// <p>Posted At: {created_at}</p>

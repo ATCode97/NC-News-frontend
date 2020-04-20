@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import Loader from "./Loader";
 import ErrorPage from "./ErrorPage";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 
 class CommentAdder extends Component {
   state = {
@@ -32,6 +32,9 @@ class CommentAdder extends Component {
           isLoading: false,
         });
       });
+    this.setState({
+      body: "",
+    });
   };
 
   render() {
@@ -42,18 +45,21 @@ class CommentAdder extends Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <label className="CommentBox">
-          <Form.Control
-            as="textarea"
-            rows="5"
-            className="InputBox"
-            style={{ border: "solid", fontSize: 18 }}
-            onChange={(event) => this.handleInputChanges(event.target.value)}
-            type="text"
-            placeholder="Add a Comment Here..."
-            value={body}
-            required
-          />
+        <Card>
+          <Card.Body>
+            <Form.Control
+              as="textarea"
+              rows="5"
+              className="InputBox"
+              style={{ border: "solid", fontSize: 18 }}
+              onChange={(event) => this.handleInputChanges(event.target.value)}
+              type="text"
+              placeholder="Add a Comment Here..."
+              value={body}
+              required
+            />
+          </Card.Body>
+
           <Button
             variant="secondary"
             size="sm"
@@ -62,7 +68,7 @@ class CommentAdder extends Component {
           >
             Post comment
           </Button>
-        </label>
+        </Card>
       </Form>
     );
   }
