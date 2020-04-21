@@ -3,6 +3,13 @@
   padding: 15px;
 }
 
+.logo {
+  display: flex;
+  background: black;
+  justify-content: center;
+  padding: 20px;
+}
+
 .Header p {
   border: 0;
   color: white;
@@ -10,8 +17,8 @@
 }
 
 .logo {
-  height: 150px;
-  width: 250px;
+  height: 100px;
+  width: 200px;
 }
 
 .ArticlesList {
